@@ -23,7 +23,7 @@ export default function Main({}) {
   const [nav, setNav] = useState("home");
   const [img, setImg] = useState("");
   
-  
+  const urllocal = "http://localhost:3001";
   const [request, setRequest] = useState([]);
   const [driver1, setDriver1] = useState([]);
   const [driver2, setDriver2] = useState([]);
@@ -48,7 +48,7 @@ export default function Main({}) {
   const history = useHistory();
   const filterValue = (obj, key, value)=> obj.find(v => v[key] === value);
   const getdata = () =>{
-    Axios.get("http://192.168.0.189:3001/data").then((response) => {
+    Axios.get(`${urllocal}/data`).then((response) => {
       if (response.data) {
         
         var profilekid = filterValue(response.data[0]);
@@ -67,16 +67,16 @@ export default function Main({}) {
  
   
   const logout = () => {
-    Axios.post("http://192.168.0.189:3001/logout", {
+    Axios.post(`${urllocal}/logout`, {
      
     }).then((response) => {
      
     });
     history.push("/");
   };
-
+  
   const getrole = () =>{
-    Axios.get("http://192.168.0.189:3001/login").then((response) => {
+    Axios.get(`${urllocal}/login`).then((response) => {
       if (response.data.loggedIn == true) { 
         
         

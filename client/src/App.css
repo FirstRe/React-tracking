@@ -439,6 +439,9 @@ input {
   background-color: #7ba5ff;
   height: 100vh;
   padding: 40px;
+  display: block;
+  margin: auto;
+  max-width: 500px;
 }
 
 .profile-name{

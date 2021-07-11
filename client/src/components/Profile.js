@@ -1,17 +1,19 @@
 import React from "react";
 import '../App.css';
+import {Container} from 'reactstrap'
 
 export default function Profile({request,img,logout}) {
   
   return (
     <div className="profile-main">
+    
       <div className="profile_top_main">
                   <div className="container">
                       <h3>โปรไฟล์</h3>
                   </div>
               </div>
     <div className="profile-desk">
-      
+    <Container>
       
       <img src={`img/${img}`} alt="" style={{width:"100%",maxWidth:"200px",margin:"auto",display:"block",borderRadius:"100%"}}/>
       <div className="profile-name"> 
@@ -28,7 +30,9 @@ export default function Profile({request,img,logout}) {
         
       </form>
       </div>
+      </Container>
     </div>
+    
     </div> 
   );
 }

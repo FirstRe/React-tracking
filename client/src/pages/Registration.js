@@ -16,7 +16,7 @@ export default function Registration() {
   const [loginStatus, setLoginStatus] = useState("");
   const [checkstatus, setCheckstatus] = useState("");
   const [checkstatus2, setCheckstatus2] = useState("");
-
+  const urllocal = "http://localhost:3001";
   Axios.defaults.withCredentials = true;
 
   // const register = () => {
@@ -28,7 +28,7 @@ export default function Registration() {
   // }; 
   const history = useHistory();
   const logout = () => {
-    Axios.post("http://192.168.0.189:3001/logout", {
+    Axios.post(`${urllocal}/logout`, {
      
     }).then((response) => {
       if(response){
@@ -49,7 +49,7 @@ export default function Registration() {
       setCheckstatus2("โปรดใส่ Username หรือ Password !");
 
     }else{
-    Axios.post("http://192.168.0.189:3001/login", {
+    Axios.post(`${urllocal}/login`, {
       username: username,
       password: password,
     }).then((response) => {
@@ -70,7 +70,7 @@ export default function Registration() {
 };
 
   useEffect(() => {
-    Axios.get("http://192.168.0.189:3001/login").then((response) => {
+    Axios.get(`${urllocal}/login`).then((response) => {
       if (response.data.loggedIn == true) {
         setLoginStatus(response.data.loggedIn);
         history.push("/Main");
