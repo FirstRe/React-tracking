@@ -22,7 +22,7 @@ export default function Request({request}) {
 
   const morn = () => {
     if(requests != ""){
-    Axios.post("http://192.168.0.189:3001/request", {
+    Axios.post("http://localhost:3001/request", {
       idstudent: request.idstudent,
       room_no : request.room,
       username: request.name + " " + request.lname,
@@ -50,7 +50,7 @@ export default function Request({request}) {
     <div className="request_main">
       {visible? <div className="alert-box" onClick={()=>{setVisible(false)}}>
        <div className="alert-box-css">
-         <p style={{position:'absolute',marginLeft:'118px',marginTop:'-23px'}}>x</p>
+         <p style={{position:'absolute',marginLeft:'100px',marginTop:'-23px'}}>x</p>
           <p>ส่งคำขอเเล้ว!  </p>
           <p>ประเภท: {" " + requests}</p>
           
@@ -87,7 +87,7 @@ export default function Request({request}) {
                   </div>
 
                   <div className="request-item-grid">
-                         <div className="request-flex2">
+                         <div className="request-flex2"> 
                             <Row>
                                {/* {Requestjson.map((requestest,index) => {
                              return <div className="request-title" key={index}>
@@ -103,8 +103,10 @@ export default function Request({request}) {
                                   {Requestjson.map((requestest,index) => {
                                    return <Col xs="6" key={index}>
                                         <div className="request-title2" >
-                                            <a onClick={()=> dispatch(update(requestest.title))} style={{textAlign:"center",fontSize:"24px",position:"relative",textShadow:"2px 2px 5px #4A9DFCE8"}}>{requestest.title}</a>
+                                          <img src={requestest.img}  style={{width:"100%",maxWidth:"40px"}}/>
+                                            
                                         </div>
+                                        <a onClick={()=> dispatch(update(requestest.title))} style={{textAlign:"center",fontSize:"24px",position:"relative",textShadow:"2px 2px 5px #4A9DFCE8"}}>{requestest.title}</a>
                                     </Col>
                                   })}
                             </Row>
