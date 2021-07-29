@@ -29,7 +29,7 @@ export default function Home({img, data, request, driver2, driver1, setNav}) {
         </div>
       </div>
       
-      <img src={`img/${img}`} alt="" style={{width:"100%",maxWidth:"200px",margin:"auto",display:"block",borderRadius:"100%",marginTop:"20px"}}/>
+      <img src={`img/${img}`} alt="" style={{width:"200px",height:"200px",margin:"auto",display:"block",borderRadius:"100%",marginTop:"20px"}}/>
          <div className="name-tag">
              <p>{request.name} {request.lname}</p>
          </div>
@@ -73,9 +73,9 @@ export default function Home({img, data, request, driver2, driver1, setNav}) {
                 <div className={more}>
                   <h2>เวลา <i className="fas fa-user-clock" style={{color:"#5183F0"}}></i></h2>
                    
-                    <p style={{marginBottom:"0px",textAlign:"left"}}>ขึ้นรถตู้ : <span style={{color:"#13CE02"}}>{request.tbus}</span></p>
-                    <p style={{marginBottom:"0px",textAlign:"left"}}>ถึงโรงเรียน : <span style={{color:"#13CE02"}}>{request.tschool}</span></p>
-                    <p style={{marginBottom:"0px",textAlign:"left"}}>ถึงบ้าน : <span style={{color:"#13CE02"}}>{request.thome}</span></p>
+                    <p style={{marginBottom:"0px",textAlign:"left"}}>ขึ้นรถตู้ : <span style={{color:"#000000"}}>{request.tbus}</span></p>
+                    <p style={{marginBottom:"0px",textAlign:"left"}}>ถึงโรงเรียน : <span style={{color:"#000000"}}>{request.tschool}</span></p>
+                    <p style={{marginBottom:"0px",textAlign:"left"}}>ถึงบ้าน : <span style={{color:"#000000"}}>{request.thome}</span></p>
                 </div>
             </div>
               
@@ -94,7 +94,7 @@ export default function Home({img, data, request, driver2, driver1, setNav}) {
                    <div className="request_time_status">
                     <p style={{textAlign:"left",verticalAlign:" middle",marginBottom:"auto",marginTop:"auto",color:"#383838E8"}}>{request.Checkrequest }<i className="fas fa-child" style={{marginLeft:"5px",color:"#0BB321"}}></i> </p>
                   </div>
-                    <p style={{textAlign:"left",verticalAlign:" middle",color:"#e8e8e8e8",marginBottom:"auto",marginTop:"auto"}}>{request.timerequest} น.{String.fromCodePoint(0x1F525)}</p>
+                    <p style={{textAlign:"left",verticalAlign:" middle",color:"#383838E8",marginBottom:"auto",marginTop:"auto"}}>{request.timerequest} น.{String.fromCodePoint(0x1F525)}</p>
                   </div> 
                   
               </div>: 

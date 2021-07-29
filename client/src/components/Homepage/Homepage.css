@@ -1,0 +1,49 @@
+.homepage{
+    height:  100vh;
+    background-color:#ffffff;
+   
+}
+
+.homepage-profile
+{
+    max-width: 600px;
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+}
+.name_profile{
+    font-size: 30px;
+    margin-top: 5px;
+}
+.status_page{
+    margin-top:20px;
+}
+
+.request_page{
+        margin-top: 30px;
+}
+
+
+.request_ui{
+
+}
+
+
+
+
+
+
+.driver_page{
+    margin-top: 30px;
+}
+.driver_ui{
+    background-color: rgb(255, 255, 255);
+   padding: 10px;
+   border-radius: 10px;
+   text-align: center;
+   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.459), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.driver_ui p, a{
+    font-size: 12px;
+    margin-bottom: 0px;
+}

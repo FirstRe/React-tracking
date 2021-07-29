@@ -1,11 +1,15 @@
-const requestStatus = (state = "test", action) => {
+ const requestStatus = (state = "", action) => {
     switch(action.type){
         case 'UPDATE':
             return state = action.payload;
         
         default:
-            return state = "";
+            return state 
 
     }
 };
+
+ 
+
 export default requestStatus;
+

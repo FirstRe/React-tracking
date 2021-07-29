@@ -4,6 +4,7 @@ import "./App.css";
 import Main from "./pages/Main";
 import Registration from "./pages/Registration";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Driver from "./pages/Driver";
 
 
 
@@ -22,6 +23,7 @@ function App() {
     <Router>
       <Route path="/" exact render={(props) => <Registration />} />
       <Route path="/Main" exact render={(props) => <Main /> } />
+      <Route path="/Driver" exact render={(props) => <Driver /> } />
       <Redirect to="/" />
     </Router>
   );

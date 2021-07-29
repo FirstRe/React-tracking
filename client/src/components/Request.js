@@ -8,7 +8,7 @@ import {  update } from "../actions";
 
 
 
-export default function Request({request}) {
+export default function Request({request,img,urllocal}) {
   //redux
 
     const requests = useSelector(state => state.status);
@@ -22,7 +22,7 @@ export default function Request({request}) {
 
   const morn = () => {
     if(requests != ""){
-    Axios.post("http://localhost:3001/request", {
+    Axios.post("http://192.168.1.110:3001/request", {
       idstudent: request.idstudent,
       room_no : request.room,
       username: request.name + " " + request.lname,
@@ -50,7 +50,7 @@ export default function Request({request}) {
     <div className="request_main">
       {visible? <div className="alert-box" onClick={()=>{setVisible(false)}}>
        <div className="alert-box-css">
-         <p style={{position:'absolute',marginLeft:'100px',marginTop:'-23px'}}>x</p>
+         <p style={{position:'relative',marginLeft:'138px',marginTop:'-23px'}}>x</p>
           <p>ส่งคำขอเเล้ว!  </p>
           <p>ประเภท: {" " + requests}</p>
           
@@ -61,33 +61,46 @@ export default function Request({request}) {
 
               <div className="request_top_main">
                   <div className="container">
-                      <h3>คำขอพิเศษ</h3>
+                      <h2 style={{fontSize:"30px",marginTop:"20px"}}>คำขอพิเศษ</h2>
                       
                   </div>
               </div>
         <Container>
            
-                  <div className=" request_main_status" >
+                  <div className=" request_main_status container-fluid" style={{maxWidth:"620px"}} >
                     
-                       <h5>คำขอเพิ่มเติม</h5>
                        
-                        <div className="input_request">
+                        <div className="input_request ">
+                        <i class="fas fa-angle-double-right input_request_icon"></i>
                             <input 
-                              placeholder="โปรดใส่คำร้องขอเพื่มเติม"
+                              placeholder={"      " + "โปรดใส่คำร้องขอเพื่มเติม"}
                               value={requests} 
                               onChange={(e)=> dispatch(update(e.target.value))}
-                              style={{width:"100%",maxWidth:"600px",display:"block",margin:"auto",borderRadius:"10px"}}
+                              style={{width:"80%",maxWidth:"600px",display:"block",margin:"auto",border:"none"}}
+                              className="input_requestcss"
                             />
                         </div>
                   </div>
                   <div className="request_post">
-                     <h5>ใบแจ้งคำร้อง</h5>
-                    <p>ด.ช. {request.name} {request.lname} </p>
-                    <p>คำร้องที่ขอ {requests}</p>
+                      <div style={{display:"flex",justifyContent:"start"}}>
+                        <div>
+                        <img src={`img/${img}`} alt="" style={{width:"100%",maxWidth:"40px",maxHeight:"40px",height:"100%",borderRadius:"100%",marginRight:"10px"}}/>
+                        </div>
+                        <div>
+                        <h5 className="">ใบแจ้งคำร้อง </h5>
+                        <p style={{fontSize:"12px",marginBottom:"0px"}}> {request.name} {request.lname} </p>
+                        </div>
+                      
+                      </div>
+                      <hr/>
+                      
+                      <p>คำร้องที่ขอ {requests}</p>
+
+
                   </div>
 
                   <div className="request-item-grid">
-                         <div className="request-flex2"> 
+                         <div className="request-flex2 mt-5"> 
                             <Row>
                                {/* {Requestjson.map((requestest,index) => {
                              return <div className="request-title" key={index}>
@@ -101,20 +114,26 @@ export default function Request({request}) {
                                     </div>
                                   })} */}
                                   {Requestjson.map((requestest,index) => {
-                                   return <Col xs="6" key={index}>
+                                   return <Col xs="3"  key={index} onClick={()=> dispatch(update(requestest.title))}>
                                         <div className="request-title2" >
                                           <img src={requestest.img}  style={{width:"100%",maxWidth:"40px"}}/>
                                             
                                         </div>
-                                        <a onClick={()=> dispatch(update(requestest.title))} style={{textAlign:"center",fontSize:"24px",position:"relative",textShadow:"2px 2px 5px #4A9DFCE8"}}>{requestest.title}</a>
+                                        <a  style={{textAlign:"center",fontSize:"14px",position:"relative",textShadow:"2px 2px 5px #4A9DFCE8"}}>{requestest.title}</a>
                                     </Col>
                                   })}
                             </Row>
                          </div>
                   </div> 
-                  <div className="button-request-bar">
-                     <button  className="button-request-send" onClick={morn}>ส่งคำขอ</button>
+                  <div className="container">
+                    <div className="button-request-bar ">
+                      <div className="request-bar">
+                        <p className="m-2"> ! โปรดกดส่งของเฉพาะวันนี้</p>
+                        <button  className="button-request-send" onClick={morn}>ส่งคำขอ</button>
+                        </div>
+                    </div>
                   </div>
+                  
                   
             
         </Container>
